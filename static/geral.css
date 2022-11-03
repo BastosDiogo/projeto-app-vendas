@@ -1,0 +1,243 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/* Novo template
+*/
+
+header {
+	background:rgb(237, 237, 237);
+	padding: 10px 0;
+}
+
+
+.caixa {
+	position: relative;
+	width: 940px;
+	margin: 0 auto;
+  background:rgb(237, 237, 237)
+}
+
+
+#logo {
+  width: 120px;
+  height: 100px;
+  text-align: center;
+}
+
+nav {
+	position: absolute;
+	top: 50px;
+	right: 0;
+}
+
+nav li {
+	display: inline;
+	margin: 0 0 0 15px;
+}
+
+nav a {
+	text-transform: uppercase;
+	color: rgb(0,0,0);
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+main {
+  background: rgb(255,255,255);
+  /* background: rgb(0, 0, 0); */
+}
+
+/* .container {
+  position: relative;
+	width: 940px;
+	margin: 0 auto;
+  background: rgb(210, 210, 210);
+} */
+
+.produtos li {
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 20px 20px;
+	box-sizing: border-box;
+}
+
+#imagens-produtos{
+  width: 100%;
+  height: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
+  transform: translateX(-15px);
+  box-shadow: 0 1px 1px;
+  color:  rgb(0,0,0);
+}
+
+.head_button:after {
+  background-color: #fff;
+}
+
+.titulo-produtos {
+  color:rgb(31,48,74);
+  font-weight: bold;
+	font-size: 13px;
+  text-align:center;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.titulo-produtos-2 {
+  background: rgb(221, 216, 212);
+  color:rgb(31,48,74);
+  font-weight: bold;
+	font-size: 15px;
+  text-align:center;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+/* ul .titulo-higiene {
+  display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 20px 20px;
+	box-sizing: border-box;
+} */
+
+#imagens-produtos-comprar {
+  width: 100%;
+  height: 100%;
+}
+
+#imagens-produtos-comprar-2 {
+  width: 15%;
+  height: 15%;
+}
+
+#imagens-produtos-comprar-3 {
+  width: 70%;
+  height: 70%;
+}
+
+#imagens-produtos-comprar-4 {
+  width: 40%;
+  height: 40%;
+}
+.caixa-2 {
+  position: relative;
+	width: 940px;
+	margin: 0 auto;
+  background:rgb(237, 237, 237)
+}
+
+.produtos-comprar li {
+	display: inline-block;
+	text-align: center;
+	width: 20%;
+	vertical-align: top;
+	margin: 0 2%;
+	padding: 30px 20px;
+	box-sizing: border-box;
+  /* background: rgb(200, 0, 0); */
+}
+
+.nome-produto {
+	font-weight: bold;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  /* background: rgb(100, 200, 10); */
+}
+
+/* .imagens-proditos {
+  padding-bottom: 0px;
+  padding-top: 20px;
+  height:30px;
+  width:50px;
+  text-align:center;
+} */
+
+#apresentacao {
+    /* padding: 20px; */
+    padding-bottom: 0px;
+    padding-top: 20px;
+    height:300px;
+    width:500px;
+    text-align:center;
+}
+
+
+.botao{
+    text-align:center;
+    padding: 0, 10%;
+}
+
+
+footer {
+    /* width: 940px;
+	margin: 0 auto; */
+    background:rgb(0, 0, 0)
+}
+
+.texto-rodape {
+    text-align:center;
+    color: #fff;
+    font-size: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
