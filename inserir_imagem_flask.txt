@@ -1,0 +1,2 @@
+Inserir imagens via Flask:
+    https://cursos.alura.com.br/forum/topico-html-com-imagem-no-flask-96334
