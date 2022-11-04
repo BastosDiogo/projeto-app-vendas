@@ -1,10 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash
-from service.candidato import Candidatos
-from service.tratar_dados import (
-    tratar_dinheiro,
-    tratar_lgpd,
-    tratar_nascimento,
-)
+from service.mercado import Mercado
+from service.trazer_precos import TrazPrecos
+from service.tratar_dados import TratarDados
 
 
 app = Flask(__name__)
@@ -32,25 +29,83 @@ def pagina_inicial():
 
 @app.route('/produtos-higiene-pessoal')
 def higiene_pessoal():
-    preco = "15,55"
+    precos = TrazPrecos().precos()
+    
+    pasta_dente = precos['pasta_dente']
+    sabonete = precos['sabonete']
+    shampoo = precos['shampoo']
+    escova_dente = precos['escova_dente']
+    algodao_bola =precos['algodao_bola']
+    cotonete = precos['cotonete']
+    fio_dental = precos['fio_dental']
+    papel_hienico = precos['papel_hienico']
+
     return render_template(
-        'higiene_pessoal.html', titulo=titulo, preco=preco)
+        'higiene_pessoal.html',
+        titulo=titulo,
+        pasta_dente=pasta_dente,
+        sabonete=sabonete,
+        shampoo=shampoo,
+        escova_dente=escova_dente,
+        algodao_bola=algodao_bola,
+        cotonete=cotonete,
+        fio_dental=fio_dental,
+        papel_hienico=papel_hienico,
+    )
 
 
 @app.route('/produtos-bebidas')
 def bebidas():
-    preco = "15,55"
-    # xxx = request.from_values('nome-produto')
-    # print(f'\n{xxx}\n')
+    precos = TrazPrecos().precos()
+    
+    conhaque = precos['conhaque']
+    cerveja_lata_350ml = precos['cerveja_lata_350ml']
+    H2O = precos['H2O']
+    cerveja_antartica_600ml = precos["cerveja_antartica_600ml"]
+    cerveja_heineken_600ml = precos['cerveja_heineken_600ml']
+    chopp_vinho_473ml = precos['chopp_vinho_473ml']
+    vinho_tinto = precos['vinho_tinto']
+    vinho_branco = precos['vinho_branco']
+
     return render_template(
-        'bebidas.html', titulo=titulo, preco=preco)
+        'bebidas.html',
+        titulo=titulo, 
+        conhaque=conhaque,
+        cerveja_lata_350ml=cerveja_lata_350ml,
+        H2O=H2O,
+        cerveja_antartica_600ml=cerveja_antartica_600ml,
+        cerveja_heineken_600ml=cerveja_heineken_600ml,
+        chopp_vinho_473ml=chopp_vinho_473ml,
+        vinho_tinto=vinho_tinto,
+        vinho_branco=vinho_branco
+    )
 
 
 @app.route('/produtos-petiscos')
 def petiscos():
-    preco = "15,55"
+    precos = TrazPrecos().precos()
+
+    amendoim = precos['amendoim']
+    azeitona = precos['azeitona']
+    bata_chips = precos['bata_chips']
+    fandangos = precos['fandangos']
+    pingo_ouro = precos['pingo_ouro']
+    queijo_bola = precos['queijo_bola']
+    torrada_queijo = precos['torrada_queijo']
+    torrada_amanteigada =precos['torrada_amanteigada']
+
     return render_template(
-        'petiscos.html', titulo=titulo, preco=preco)
+        'petiscos.html',
+        titulo=titulo,
+        amendoim=amendoim,
+        azeitona=azeitona,
+        bata_chips=bata_chips,
+        fandangos=fandangos,
+        pingo_ouro=pingo_ouro,
+        queijo_bola=queijo_bola,
+        torrada_queijo=torrada_queijo,
+        torrada_amanteigada=torrada_amanteigada
+    )
 
 
 
