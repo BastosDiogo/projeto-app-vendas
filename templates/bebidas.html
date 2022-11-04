@@ -5,43 +5,46 @@
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_conhaque.png?raw=true">
             <p class="nome-produto">Conhaque</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ conhaque }}</p>
+            <form method="POST" action="/cadastro-realizado" >
+                <p> <class="form-control" type="text" name="nome" value="xxx"></p>
+            </form>
         </li>
         
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja-lata.jpg?raw=true">
             <p class="nome-produto">Cerveja em Lata</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ cerveja_lata_350ml }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_refrigerante_2l.png?raw=true">
             <p class="nome-produto">H2O</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ H2O }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar-4" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja-antartica_600.jpg?raw=true">
             <p class="nome-produto">Cerveja Antárcia 600ml</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ cerveja_antartica_600ml }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar-4" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja_600.jpg?raw=true">
             <p class="nome-produto">Cerveja Heineken 600ml</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ cerveja_heineken_600ml }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja_vinho.jpg?raw=true">
             <p class="nome-produto">Chopp de Vinho Lata</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ chopp_vinho_473ml }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_vinho.jpg?raw=true">
             <p class="nome-produto">Vinho Tinto</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ vinho_tinto }}</p>
         </li>
         <li>
             <img id="imagens-produtos-comprar" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_vinho_branco.jpg?raw=true">
             <p class="nome-produto">Vinho Branco</p>
-            <p class="nome-produto">R$ {{ preco }}</p>
+            <p class="nome-produto">R$ {{ vinho_branco }}</p>
         </li>
     </ul>
 {% endblock %}

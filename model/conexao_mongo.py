@@ -19,13 +19,4 @@ class Pymongo:
         self.database = self.client[os.getenv("DATABASE_ENVIROMENT")]
         #self.database = self.client[os.getenv("DATABASE_ENVIROMENT")]['candidato']
 
-# db = list(Pymongo().database.find())
 
-#print(db)
-
-# x = Pymongo().database['cadastro_candidatos'].insert_one(
-#     {
-#         "id":456,
-#         "nome":"Ciclano"
-#     }
-# )
