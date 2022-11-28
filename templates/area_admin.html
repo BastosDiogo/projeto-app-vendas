@@ -1,0 +1,115 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<form method="POST" action="/precos-atualizados">
+    <div class="form-prod">
+        <ul>
+            <li>
+                <h2 id="adm-titulo">Digite os novos valores dos produtos desejados:</h2>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_pasta_dente.png?raw=true">
+                    <p id="prod"><label>Pasta de dente - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6c4359df-5bc3-11ed-88bb-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_sabonete.png?raw=true">
+                <p id="prod"><label>Sabonete - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6cbe566c-5bc3-11ed-b190-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_shampoo.png?raw=true">
+                <p id="prod"><label>Shampoo - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6d2666dc-5bc3-11ed-b6bb-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_escova_pe.jpg?raw=true">
+                <p id="prod"><label>Escova de dente - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6d8f61f6-5bc3-11ed-afb8-24f5aaf0a4bc" required></p>
+            </li><li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_algodao.jpg?raw=true">
+                <p id="prod"><label>Alcodão tipo bola - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6dfddb2d-5bc3-11ed-aca7-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_cotonete.jpg?raw=true">
+                <p id="prod"><label>Cotonete - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6e9e12d8-5bc3-11ed-ad8c-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_fio.jpg?raw=true">
+                <p id="prod"><label>Fio dental - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6f033d51-5bc3-11ed-a42d-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/higiene_papel.jpg?raw=true">
+                <p id="prod"><label>Papel Higiênico - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="6f8390c6-5bc3-11ed-8e4e-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_conhaque.png?raw=true">
+                <p id="prod"><label>Conhaque - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="5b1cfeff-5bb0-11ed-9dd1-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja-lata.jpg?raw=true">
+                <p id="prod"><label>Cerveja em Lata - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3124e9f0-5bb0-11ed-a729-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_refrigerante_2l.png?raw=true">
+                <p id="prod"><label>H2O - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="31b89e43-5bb0-11ed-ae6f-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja-antartica_600.jpg?raw=true">
+                <p id="prod"><label>Cerveja Antártica 600ml - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="322d801a-5bb0-11ed-8421-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja_600.jpg?raw=true">
+                <p id="prod"><label>Cerveja Heineken 600ml - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="32962d08-5bb0-11ed-a92a-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_cerveja_vinho.jpg?raw=true">
+                <p id="prod"><label>Chopp de Vinho Lata - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="32fe1697-5bb0-11ed-b06f-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_vinho.jpg?raw=true">
+                <p id="prod"><label>Vinho Tinto - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="33ce10ec-5bb0-11ed-9500-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/bebidas_vinho_branco.jpg?raw=true">
+                <p id="prod"><label>Vinho Branco - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="34364879-5bb0-11ed-9ce0-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_amendoim.png?raw=true">
+                <p id="prod"><label>Amendoim - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3cf71d50-5bc4-11ed-8f9b-24f5aaf0a4bc" required></p>
+            </li>
+            <li> 
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_azeitonas.jpg?raw=true">
+                <p id="prod"><label>Azeitona - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3d6aba3e-5bc4-11ed-9a37-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_batata.png?raw=true">
+                <p id="prod"><label>Batata Chipps - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3dd09579-5bc4-11ed-b8b5-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_fandangos.jpg?raw=true">
+                <p id="prod"><label>Fandangos - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3e69c84b-5bc4-11ed-a16a-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_pingo-ouro.jpg?raw=true">
+                <p id="prod"><label>Pingo de Ouro - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3ef741bb-5bc4-11ed-840b-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_queijo.jpg?raw=true">
+                <p id="prod"><label>Queijo bola - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3f6e8dd8-5bc4-11ed-801b-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_torrada.png?raw=true">
+                <p id="prod"><label>Torrada de Queijo - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="3fd76fa2-5bc4-11ed-8497-24f5aaf0a4bc" required></p>
+            </li>
+            <li>
+                <img id="prod-imagem" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/petisco_torradas.jpg?raw=true">
+                <p id="prod"><label>Torrada amanteigada - R$:</label> <input class="prod" type="number" value="0" min="0.00" max="10000.00" step="any" name="4082ec82-5bc4-11ed-92fb-24f5aaf0a4bc" required></p>
+            </li>
+            <!-- <li> -->
+                <!-- <form method="POST" action="/area-admin"> -->
+                    <!-- <p id="enviar_prod"><button class="botao_prod" type="submit">Enviar</button></p> -->
+                    <!-- <p id="enviar_prod"><button class="botao_prod" type="submit"><a href="/">Enviar</a></button></p> -->
+                <!-- </form> -->
+            <!-- </li> -->
+        </ul>
+    </div>
+    <p id="enviar_prod"><button class="botao_prod" type="submit">Enviar</button></p>
+</form>
+
+{% endblock %}
