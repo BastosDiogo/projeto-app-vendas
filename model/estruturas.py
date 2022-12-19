@@ -49,6 +49,7 @@ class EstruturaCliente():
         telefone: str,
         cidade: str,
         estado: str,
+        senha
     ):
     
         payload = {
@@ -57,6 +58,7 @@ class EstruturaCliente():
             "nascimento": nascimento,
             "contatos": {'email':email,'telefone':telefone},
             "local": {'cidade': cidade,'estado':estado},
+            "senha": senha
         }
 
         return payload

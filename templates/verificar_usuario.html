@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<div class="form-adm">
+    <ul>
+        <li>
+            <h2 id="adm-titulo">Por favor dige sua senha e login:</h2>
+        </li>
+        <li>
+            <form method="POST" action="/autenticar-usuario">
+                <p id="adm"><label>Login:</label> <input class="form-control" type="text" name="login" required></p>
+                <p id="adm_2"><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
+                <p id="enviar"><button class="botao" type="submit">Enviar</button></p>
+            </form>
+        </li>
+    </ul>
+</div>
+{% endblock %}
