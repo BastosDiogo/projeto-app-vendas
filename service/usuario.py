@@ -94,7 +94,7 @@ class Usuario(Pymongo):
         senha:str,
         confirmacao_senha:str,
     ):
-        cpf = str(cpf)
+        cpf = self.tratar_dados.tratar_cpf(cpf)
         senha = str(senha)
         telefone = str(telefone)
         email = str(email).lower()
