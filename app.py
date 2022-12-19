@@ -2,8 +2,9 @@ from flask import Flask, render_template, request, redirect, session, flash
 from service.mercado import Mercado
 from service.trazer_precos import TrazPrecos
 from service.tratar_dados import TratarDados
-from service.mensagens_usuario import MensagemUsuario
+from service.mensagens import Mensagens
 from service.admin import Admin
+from service.usuario import Usuario
 
 
 app = Flask(__name__)
@@ -13,20 +14,9 @@ app.secret_key = 'app-venda-produtos'
 
 titulo = 'Super Mercado - App venda produtos'
 mercado = Mercado()
-mensagem_usurio = MensagemUsuario()
+mensagens = Mensagens()
 admin_sistema = Admin()
-# mensagem_acesso_negado ="""Seu NOME e CPF já constam em nosso banco de dados.
-#     Obrigado por sua confiança"""
-
-# mensagem_acesso_negado_cpf ="""O CPF inserido não é válido"""
-
-# mensagem_acesso_negado_cpf_existente = """O CPF inserido já consta em nossa
-#     base de dados."""
-
-# mensagem_acesso_permitido = """Usuário Autenciado com sucesso."""
-# mensagem_modificaco_preco = """
-#     Preços modificados. Caso deseje alterár-los novamente, redigite os novos preços.
-#     """
+usuario = Usuario()
 
 @app.route('/')
 def pagina_inicial():
@@ -126,10 +116,10 @@ def autenticar():
     admins_cadastrados = admin_sistema.admins_cadastrados(login,senha)
 
     if admins_cadastrados:
-        flash(mensagem_usurio.mensagem_acesso_permitido(True))
+        flash(mensagens.mensagem_acesso_permitido(True))
         return redirect('/area-admin')
 
-    flash(mensagem_usurio.mensagem_acesso_permitido(False))
+    flash(mensagens.mensagem_acesso_permitido(False))
     return render_template('verificar_admin.html')
 
 
@@ -142,30 +132,59 @@ def area_admin():
 def precos_modificados():
     precos_inseridos_usuario = request.form
     precos_atualizados = mercado.atualizar_precos(precos_inseridos_usuario)
-    flash(mensagem_usurio.mensagem_modificaco_preco(precos_atualizados))
+    flash(mensagens.mensagem_modificaco_preco(precos_atualizados))
 
     return render_template('area_admin.html', titulo=titulo)
 
 
+@app.route('/cadastrar-usurario', methods = ['POST','GET'])
+def cadastra_usuario():
+    return render_template('cadastro_usuario.html', titulo=titulo)
 
-"subir na internet = https://cursos.alura.com.br/forum/topico-onde-hospedar-a-aplicacao-73692"
+
+@app.route('/verificar-usurario', methods = ['POST','GET'])
+def verificar_usurario():
+    nome_usuario = str(request.form['nome'])
+    cpf_usuario = str(request.form['cpf'])
+    nascimento = str(request.form['nascimento'])
+    email = str(request.form['email'])
+    telefone = str(request.form['telefone'])
+    cidade = str(request.form['cidade'])
+    estado = str(request.form['estado'])
+    senha = str(request.form['senha'])
+    confirmacao_senha = str(request.form['confirmar_senha'])
+
+    verificar_dados = usuario.verificar_dados_usuario(
+        cpf_usuario,
+        telefone,
+        email,
+        senha,
+        confirmacao_senha
+    )
+
+    if len(verificar_dados) != 0 :
+        for erro in verificar_dados:
+            if erro != 0:
+                flash(erro)
+    
+        return redirect('/cadastrar-usurario')
+
+    usuario.inserir_usuario(
+        nome_usuario,
+        cpf_usuario,
+        nascimento,
+        email,
+        telefone,
+        cidade,
+        estado,
+        senha,
+    )
+
+    flash(mensagens.mensagem_cliente_cadastrado())
+    return redirect('/')
+
+
+
 
 if __name__ == "__main__":  # Para poder executar quando o arquivo não for importado
     app.run(debug=True)     # Para ir atualizando as modificações que o codigo faz no site
-
-# Heroku: https://dashboard.heroku.com/apps/busca-exp-candidatos/deploy/heroku-git
-
-# Download: https://www.w3schools.com/tags/att_a_download.asp
-# Video sobre linkl de download no html = https://www.youtube.com/watch?v=Jszz7M676y8
-# Site com os typos de midia: https://www.iana.org/assignments/media-types/media-types.xhtml
-# Duvidas hmtl: https://www.w3schools.com/tags/att_a_download.asp
-
-
-# link:
-# https://www.delftstack.com/pt/howto/html/center-a-form-in-html/#:~:text=formul%C3%A1rio%20em%20HTML.-,Use%20a%20propriedade%20CSS%20margin%20para%20centralizar%20um%20formul%C3%A1rio%20em,cont%C3%AAiner%20e%20os%20elementos%20adjacentes.
-
-#Link 2:
-# https://pt.stackoverflow.com/questions/148611/centralizar-form-etc-deixar-no-centro-da-tela
-
-# Link 3:
-# https://pt.stackoverflow.com/questions/172932/alinhamento-de-bot%C3%B5es-com-css

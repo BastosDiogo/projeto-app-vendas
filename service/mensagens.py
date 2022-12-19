@@ -1,11 +1,11 @@
 
-class MensagemUsuario():
+class Mensagens():
     def __init__(self) -> None:
         pass
 
     def mensagem_acesso_permitido(self, acesso_admin:bool):
         if acesso_admin == True:
-            mensagem = """Usuário Autenciado com sucesso."""
+            mensagem = """Administrador Autenticado com sucesso."""
         else:
             mensagem = """ACESSO NEGADO. O Login e/ou senha estão incorretos."""
         
@@ -19,11 +19,6 @@ class MensagemUsuario():
                 if len(produtos_atualizados) == 1:
                     produto_front = produto
                     continue
-
-                # while contador < len(produtos_atualizados) :
-                #     produto_front += f'{produto}, '
-                #     contador += 1
-                # produto_front += f'e {produto}'
 
                 contador += 1
 
@@ -44,7 +39,27 @@ class MensagemUsuario():
                 """
         return mensagem
 
-    # mensagem_acesso_negado ="""Seu NOME e CPF já constam em nosso banco de dados.
-#     Obrigado por sua confiança"""
+    def mensagem_cpf_repetido(self):
+        mensagem = """CPF do cliente, ja cadastrado na base."""
+        return mensagem
 
-# mensagem_acesso_negado_cpf ="""O CPF inserido não é válido"""
+    def mensagem_cpf_faltando_caracter(self):
+        mensagem = """CPF inválido. O CPF deve ter 11 caracteres."""
+        return mensagem
+
+    def mensagem_senha_diferente(self):
+        mensagem = f"""O campo "senha" e o "confirmar senha" devem ser iguais."""
+        return mensagem
+
+    def mensagem_telefone_faltando_caracter(self):
+        mensagem = """Telfone inválido. O Telfone deve ter 11 caracteres,
+         contando com o DDD."""
+        return mensagem
+
+    def mensagem_email_faltando_arroba(self):
+        mensagem = """Email inválido. Por favor inserir um email válido."""
+        return mensagem
+
+    def mensagem_cliente_cadastrado(self):
+        mensagem = """Cliente cadastrado com sucesso."""
+        return mensagem

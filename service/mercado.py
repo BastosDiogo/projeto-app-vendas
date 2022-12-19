@@ -1,5 +1,5 @@
 from model.conexao_mongo import Pymongo
-from model.estruturas import EstruturaProduto, EstruturaCliente
+from model.estruturas import EstruturaProduto
 
 
 class Mercado(Pymongo):
@@ -86,11 +86,3 @@ class Mercado(Pymongo):
         except Exception as erro:
             print(erro)
             return False
-
-    def cpfs_na_base(self):
-        try:
-            cpfs = list(self.conexao_banco.distinct("cpf",{}))
-            return cpfs
-        
-        except Exception as erro:
-            print(erro)
