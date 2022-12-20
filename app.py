@@ -10,8 +10,6 @@ from service.usuario import Usuario
 app = Flask(__name__)
 app.secret_key = 'app-venda-produtos'
 
-# candidatos = Candidatos()
-
 titulo = 'Super Mercado - App venda produtos'
 mercado = Mercado()
 mensagens = Mensagens()
@@ -20,6 +18,7 @@ usuario = Usuario()
 
 @app.route('/')
 def pagina_inicial():
+    session['admin_logado'] = None
     return render_template(
         'pagina_inicial.html', titulo=titulo)
 
@@ -113,9 +112,10 @@ def verificar_admin():
 def autenticar():
     login = request.form['login']
     senha = request.form['senha']
+    session['admin_logado'] = login
     admins_cadastrados = admin_sistema.admins_cadastrados(login,senha)
 
-    if admins_cadastrados:
+    if admins_cadastrados and session['admin_logado'] == login:
         flash(mensagens.mensagem_acesso_permitido(True))
         return redirect('/area-admin')
 
@@ -125,7 +125,12 @@ def autenticar():
 
 @app.route('/area-admin', methods = ['POST','GET'])
 def area_admin():
-    return render_template('area_admin.html', titulo=titulo)
+    if session['admin_logado'] != None:
+        flash(mensagens.mensagem_acesso_permitido(True))
+        return render_template('area_admin.html', titulo=titulo)
+
+    flash(mensagens.mensagem_acesso_permitido(False))
+    return redirect('/')
 
 
 @app.route('/precos-atualizados', methods = ['POST','GET'])
@@ -144,6 +149,7 @@ def cadastra_usuario():
 
 @app.route('/verificar-usurario', methods = ['POST','GET'])
 def verificar_usurario():
+    session['admin_logado'] = None
     nome_usuario = str(request.form['nome'])
     cpf_usuario = str(request.form['cpf'])
     nascimento = str(request.form['nascimento'])
@@ -182,8 +188,6 @@ def verificar_usurario():
 
     flash(mensagens.mensagem_cliente_cadastrado())
     return redirect('/')
-
-
 
 
 if __name__ == "__main__":  # Para poder executar quando o arquivo não for importado
