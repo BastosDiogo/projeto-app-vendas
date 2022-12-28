@@ -80,8 +80,7 @@ class Mercado(Pymongo):
 
     def update(self, filtro:dict, update:dict):
         try:
-            self.conexao_banco.update(filtro,update)
-            return True
+            self.conexao_banco.update_one(filtro,update)
         
         except Exception as erro:
             print(erro)
