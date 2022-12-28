@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<ul class="produtos">
+    <div class="titulo-selecao">
+        <li>
+            <h2 id="adm-selecao">Por favor selecione uma opção:</h2>
+        </li>
+    </div>
+    <div class="titulo-selecao">
+        <li>
+            <h2 class="titulo-selecao">Clientes Cadastrados</h2>
+            <a href="/clientes-cadastrados">
+                <img id="imagens-produtos" class="btn head_button" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/mapa_brasil.jpg?raw=true">                
+            </a>
+        </li>
+        <li>
+            <h2 class="titulo-selecao">Alterar Preços</h2>
+            <a href="/area-admin">
+                <img id="imagens-produtos" class="btn head_button" src="https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/carrinho_compras.jpg?raw=true">
+            </a>
+        </li>
+    </div>
+</ul>
+{% endblock %}
