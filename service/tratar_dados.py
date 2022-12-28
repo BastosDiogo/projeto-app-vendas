@@ -22,11 +22,11 @@ class TratarDados():
     def tratar_nascimento(self, data:str):
         data = str(data)#.replace('/','-')
 
-        dia = data[0:2]
-        mes = data[3:5]
-        ano = data[6:10]
+        dia = data[8:10]
+        mes = data[5:7]
+        ano = data[0:4]
 
-        nova_data = f'{ano}-{mes}-{dia}'
+        nova_data = f'{dia}/{mes}/{ano}'
 
         return nova_data
 
@@ -51,6 +51,16 @@ class TratarDados():
         cpf = str(cpf).replace('.','')
         cpf = str(cpf).replace('-','')
         return cpf
+
+    def mascara_cpf(self,cpf):
+        cpf = str(cpf)
+        parte_1 = cpf[0:3]
+        parte_2 = cpf[3:6]
+        parte_3 = cpf[6:9]
+        parte_4 = cpf[9:11]
+        cpf_novo = f'{parte_1}.{parte_2}.{parte_3}-{parte_4}'
+
+        return cpf_novo
 
     def tratar_precos(self, preco:float):
         preco = str(preco)

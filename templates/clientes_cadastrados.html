@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<ul>
+    <li>
+        <h2 id="adm-titulo">Clientes na base:</h2>
+    </li>
+</ul>
+<div  id="divisao-tabela">
+<table>
+    <tr>
+        <td class="cabecalho-tabela">Nome</td>
+        <td class="cabecalho-tabela">CPF</td>
+        <td class="cabecalho-tabela">Nascimento</td>
+        <td class="cabecalho-tabela">Email</td>
+        <td class="cabecalho-tabela">Telefone</td>
+        <td class="cabecalho-tabela">Cidade</td>
+        <td class="cabecalho-tabela">Estado</td>
+    </tr>
+
+    {% for dado in exibicao %}
+    <tr>
+        <td class="dados-tabela2">{{ dado['nome'] }}</td>
+        <td class="dados-tabela">{{ dado['cpf'] }}</td>
+        <td class="dados-tabela">{{ dado['nascimento'] }}</td>
+        <td class="dados-tabela">{{ dado['contatos']['email'] }}</td>
+        <td class="dados-tabela">{{ dado['contatos']['telefone'] }}</td>
+        <td class="dados-tabela">{{ dado['local']['cidade'] }}</td>
+        <td class="dados-tabela">{{ dado['local']['estado'] }}</td>
+    </tr>
+    {% endfor %}
+</table>    
+{% endblock %}

@@ -20,6 +20,18 @@ class Usuario(Pymongo):
             print(erro)
             return []
 
+    def find_ordenacao(self, filtos:dict, reject:dict,ordenar_por:str):
+        try:
+            coll = list(self.conexao_banco.find(filtos, reject))
+            coll_ordenado = sorted(coll, key=lambda x: x[ordenar_por]
+        )
+            return coll_ordenado
+        
+        except Exception as erro:
+            print(erro)
+            return []
+
+
     def aggregate(self, pipeline:list):
         coll = list(self.conexao_banco.aggregate(pipeline))
         
