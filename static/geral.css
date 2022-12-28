@@ -511,17 +511,21 @@ main {
 }
 
 footer {
-    /* width: 940px;
-	margin: 0 auto; */
-    background:rgb(0, 0, 0)
+  text-align: center;
+  color: #fff;
+  font-size: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background:rgb(0, 0, 0);
+  /* background:url(https://github.com/BastosDiogo/imagens-apps/blob/master/app-mercado/background.png?raw=true); */
+  box-sizing: border-box;
 }
 
 .texto-rodape {
     text-align:center;
     color: #fff;
     font-size: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
 }
 
 #adm-selecao {
