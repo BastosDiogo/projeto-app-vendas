@@ -15,6 +15,7 @@ mercado = Mercado()
 mensagens = Mensagens()
 admin_sistema = Admin()
 usuario = Usuario()
+tratar_dados = TratarDados()
 
 @app.route('/')
 def pagina_inicial():
@@ -117,7 +118,8 @@ def autenticar():
 
     if admins_cadastrados and session['admin_logado'] == login:
         flash(mensagens.mensagem_acesso_permitido(True))
-        return redirect('/area-admin')
+        # return redirect('/area-admin')
+        return render_template('tela_selecao_admin.html', titulo=titulo)
 
     flash(mensagens.mensagem_acesso_permitido(False))
     return render_template('verificar_admin.html')
@@ -126,7 +128,7 @@ def autenticar():
 @app.route('/area-admin', methods = ['POST','GET'])
 def area_admin():
     if session['admin_logado'] != None:
-        flash(mensagens.mensagem_acesso_permitido(True))
+        # flash(mensagens.mensagem_acesso_permitido(True))
         return render_template('area_admin.html', titulo=titulo)
 
     flash(mensagens.mensagem_acesso_permitido(False))
@@ -189,6 +191,28 @@ def verificar_usurario():
     flash(mensagens.mensagem_cliente_cadastrado())
     return redirect('/')
 
+
+@app.route('/clientes-cadastrados', methods = ['POST','GET'])
+def clientes_cadastrados():
+    if session['admin_logado'] != None:
+        dados_tratados = []
+        clientes_cadastrados = usuario.find_ordenacao(
+            {},
+            {"_id":0,"senha":0},'nome'
+        )
+
+        for dado in clientes_cadastrados:
+            dado['nascimento'] = tratar_dados.tratar_nascimento(dado['nascimento'])
+            dado['cpf'] = tratar_dados.mascara_cpf(dado['cpf'])
+            dados_tratados.append(dado)
+
+        return render_template(
+            'clientes_cadastrados.html',
+            titulo=titulo,exibicao=dados_tratados
+        )
+    
+    flash(mensagens.mensagem_acesso_permitido(False))
+    return redirect('/')
 
 if __name__ == "__main__":  # Para poder executar quando o arquivo não for importado
     app.run(debug=True)     # Para ir atualizando as modificações que o codigo faz no site
