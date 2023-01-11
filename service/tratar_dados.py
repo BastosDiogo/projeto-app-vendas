@@ -69,6 +69,9 @@ class TratarDados():
         if len(decimais) < 2: # Exemplo: preço = '4.5'
             preco = preco + '0'
 
+        elif len(decimais) > 2:
+            preco = preco[0:4]
+
         novo_preco = preco.replace('.',',')
 
         return novo_preco
